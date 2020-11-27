@@ -3,4 +3,5 @@ create table GRADECURRICULAR (
     coddis char(7) not null,
     verdis tinyint not null,    
     tipobg char(1) not null,
+    numsemidl tinyint not null,
 )
