@@ -445,14 +445,15 @@ class GraduacaoTest extends TestCase
 
         DB::getInstance()->prepare($sql)->execute($data);
 
-        $sql = "INSERT INTO GRADECURRICULAR (codcrl,coddis,verdis,tipobg) VALUES 
-                                   (:codcrl,:coddis,convert(smallint, :verdis),:tipobg)";
+        $sql = "INSERT INTO GRADECURRICULAR (codcrl,coddis,verdis,tipobg,numsemidl) VALUES 
+                                   (:codcrl,:coddis,convert(smallint, :verdis),:tipobg,convert(tinyint,:numsemidl))";
 
         $data = [
             'codcrl' => '1202000004331',
             'coddis' => 'MDF0032',
             'verdis' => '2',
             'tipobg' => 'O',
+            'numsemidl' => '4',
         ];
 
         DB::getInstance()->prepare($sql)->execute($data);
@@ -468,13 +469,14 @@ class GraduacaoTest extends TestCase
         
         DB::getInstance()->prepare($sql)->execute($data);
 
-        $sql = "INSERT INTO CURRICULOGR (codcrl,codcur, codhab) VALUES 
-                                   (:codcrl,convert(int,:codcur),convert(int, :codhab))";
+        $sql = "INSERT INTO CURRICULOGR (codcrl,codcur,codhab,dtainicrl) VALUES 
+                                   (:codcrl,convert(int,:codcur),convert(int, :codhab),convert(smalldatetime,:dtainicrl))";
 
         $data = [
             'codcrl' => '1202000004331',
             'codcur' => '3080',
             'codhab' => '12',
+            'dtainicrl' => '2020-03-14',
         ];        
 
         DB::getInstance()->prepare($sql)->execute($data);
